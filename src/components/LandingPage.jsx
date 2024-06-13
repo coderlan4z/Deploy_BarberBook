@@ -360,7 +360,7 @@ function LandingPage() {
     <Container>
       <Circles />
       <Header>
-        <ImgHeader src={Logo} alt="" />
+        <ImgHeader rel="preload" src={Logo} alt="" />
         {/*
         <DivSearch>
           <DivInput>

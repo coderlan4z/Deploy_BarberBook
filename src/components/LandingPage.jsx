@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import MockUpImg from "../../public/mockup.svg";
+import Logo from "../../public/book.svg";
 //import { API_URL } from "../../../../url";
 
 const Container = styled.div`
@@ -359,7 +360,7 @@ function LandingPage() {
     <Container>
       <Circles />
       <Header>
-        <ImgHeader src="././public/book.svg" alt="" />
+        <ImgHeader src={Logo} alt="" />
         {/*
         <DivSearch>
           <DivInput>

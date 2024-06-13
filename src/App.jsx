@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import Logo from './logo.svg';
 import Page from './components/Page';
 import Home from './components/Home';
 import ServicePage from './components/ServicePage';
@@ -58,7 +59,7 @@ const Roote = () => {
   return (
     <Page>
       <img
-        src="./public/logo.svg"
+        src={Logo}
         alt=""
         style={{
           width: '100%',

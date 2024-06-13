@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import Logo from './logo.svg';
+import Logo from '../public/logo.svg';
 import Page from './components/Page';
 import Home from './components/Home';
 import ServicePage from './components/ServicePage';

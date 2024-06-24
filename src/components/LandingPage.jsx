@@ -4,7 +4,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import MockUpImg from "../../public/mockup.svg";
-import Logo from "../../public/book.svg";
+import Logo from "../../public/book.png";
+import { GrInstagram, GrMail } from "react-icons/gr";
 //import { API_URL } from "../../../../url";
 
 const Container = styled.div`
@@ -246,7 +247,8 @@ const SearchResultItem = styled.div`
 
 
 const Button = styled.button`
-  width: 25rem;
+  width: 100%;
+  max-width: 380px;
   height: 3vw;
   font-family: Raleway;
   font-size: 1vw;
@@ -257,9 +259,8 @@ const Button = styled.button`
   border-radius: 4px;
   color: var(--white);
   background-color: var(--secondary);
-  margin: 2vh 0;
-  float: right;
-
+  margin: 2vh 0 2vh auto;
+  
   &:active {
     color: var(--white);
     background-color: var(--light-secondary);
@@ -269,7 +270,6 @@ const Button = styled.button`
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
 
   @media screen and (max-width: 768px) {
-    //voltar para 12rem
     width: 16rem;
     height: 2.5rem;
     font-size: .8rem;
@@ -280,6 +280,7 @@ const Button = styled.button`
   }
 `;
 
+
 const LoadingContainerStyles = styled.div`
   width: 100vw;
   height: 100vh;
@@ -289,6 +290,45 @@ const LoadingContainerStyles = styled.div`
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 999;
 `;
+
+const Icons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 1rem 0 1rem 10vw;
+`;
+
+const Link = styled.a`
+  color: var(--secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: .85vw;
+  &:hover {
+    color: var(--secondary-dark);
+  }
+`;
+
+const InstagramIcon = styled(GrInstagram)`
+  font-size: .85vw;
+`;
+
+const MailIcon = styled(GrMail)`
+  font-size: .85vw;
+`;
+
+const MediaDiv = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
+const ButtonDiv = styled.div`
+  display: flex;
+`
 
 function LandingPage() {
   {/*
@@ -396,7 +436,20 @@ function LandingPage() {
             Modernize sua barbearia com nosso sistema de agendamento e assistente de visagismo alimentado por inteligência artificial.
             Permita-nos simplificar sua gestão de horários enquanto oferecemos aos seus clientes uma experiência inovadora e personalizada.
           </SecondaryTitle>
-          <Button /*</Text>onClick={() => navigate('/StoreRegister')}*/ >Disponível para cadastro em breve!</Button>
+          <ButtonDiv>
+            <Button /*</Text>onClick={() => navigate('/StoreRegister')}*/ >Disponível para cadastro em breve!</Button>
+          </ButtonDiv>
+          <MediaDiv>
+            <Icons>
+              <span style={{ color: 'var(--secondary)', fontSize: '.9vw', marginBottom: '.5rem', fontWeight: '600' }}>Redes sociais e contato</span>
+              <Link href="https://www.instagram.com/barberbook.site/" target="_blank" rel="noopener noreferrer">
+                <InstagramIcon /> barberbook.site
+              </Link>
+              <Link href="mailto:contato.barberbook@gmail.com" target="_blank" rel="noopener noreferrer">
+                <MailIcon /> contato.barberbook@gmail.com
+              </Link>
+            </Icons>
+          </MediaDiv>
         </Text>
         <MockUp src={MockUpImg} alt="Mockup" />
       </DivMockUp>

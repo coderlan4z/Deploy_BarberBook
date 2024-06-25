@@ -12,47 +12,49 @@
     <link rel="preload" href="./img/book.svg" as="image">
     <link rel="preload" href="https://kit.fontawesome.com/a33a8d6d19.js" as="script" crossorigin="anonymous">
     <style>
-        /* Estilos adicionais para a página de carregamento */
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100vw;
-            height: 100vh;
-            background-color: white; /* Fundo branco */
-        }
-
-        .loading {
-            opacity: 0; /* Inicia invisível */
-            transition: opacity 2s ease-in-out; /* Transição de fade */
-        }
-
-        .img-header {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+      /* Estilos adicionais para a página de carregamento */
+      body {
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100vw;
+          height: 100vh;
+          background-color: white;
+      }
+      
+      .loading {
+          transition: opacity 2s ease-in-out;
+      }
+      
+      .img-header {
+          max-width: 100%;
+          height: auto;
+      }
+  </style>
 </head>
 
 <body>
-    <div class="loading">
-        <img src="./img/book.svg" alt="BarberBook Logo" class="img-header">
-    </div>
+  <div class="loading">
+      <img src="./img/book.svg" alt="BarberBook Logo" class="img-header">
+  </div>
+  
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var loadingDiv = document.querySelector('.loading');
+          
+          loadingDiv.style.opacity = '0';
 
-    <!-- Script para redirecionar após o fade-in -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mostra gradualmente a logo
-            var loadingDiv = document.querySelector('.loading');
-            loadingDiv.style.opacity = 1;
+          requestAnimationFrame(function() {
+              requestAnimationFrame(function() {
+                  loadingDiv.style.opacity = '1';
+              });
+          });
 
-            // Redireciona após 3 segundos (ajuste conforme necessário)
-            setTimeout(function () {
-                window.location.href = 'barberbook.html';
-            }, 3000); // 3000 milissegundos = 3 segundos
-        });
-    </script>
+          setTimeout(function () {
+              window.location.href = 'barberbook.html';
+          }, 2500);
+      });
+  </script>
 </body>
-
 </html>
